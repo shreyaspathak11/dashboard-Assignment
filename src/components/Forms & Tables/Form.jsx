@@ -39,14 +39,18 @@ const Form = ({ onSubmit }) => {
   }
 
   return (
-    <Box w="400px" paddingTop={50} paddingBottom={50}>
-      <form onSubmit={handleSubmit}>
-        <Flex direction="column">
-          <Heading fontSize="xl" fontWeight="bold" mb={4}>Please Add New Data Here:</Heading>
+    <Box w="500px" paddingTop={10} paddingBottom={50} boxShadow={'lg'} border="1px solid"  borderColor="gray.200"   borderRadius="lg" transition="all 0.2s"
+    _hover={{
+      boxShadow: 'lg',
+    }}>
+      <form onSubmit={handleSubmit} >
+        <Flex direction="column" padding="10px">
+          <Heading fontSize="2xl" fontWeight="bold" mb={10}>Please Add New Data Here:</Heading>
           <Stack spacing={4}>
             <Input
               placeholder="Product Name"
               value={formData.productName}
+              bgColor={'gray.100'}
               type="text"
               onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
             />
@@ -55,6 +59,7 @@ const Form = ({ onSubmit }) => {
               type="number"
               min="0"
               value={formData.sales}
+              bgColor={'gray.100'}
               onChange={(e) => setFormData({ ...formData, sales: e.target.value })}
             />
             <Input
@@ -62,16 +67,18 @@ const Form = ({ onSubmit }) => {
               type="number"
               min="0"
               value={formData.newCustomers}
+              bgColor={'gray.100'}
               onChange={(e) => setFormData({ ...formData, newCustomers: e.target.value })}
             />
             <Input
               placeholder="Date"
               type="date"
               value={formData.date}
+              bgColor={'gray.100'}
               onChange={(e) => setFormData({ ...formData, date: e.target.value })}
             />
           </Stack>
-          <Button type="submit" mt={8} bg="teal" _hover={{ bgColor: "black" }}>
+          <Button type="submit" mt={8} color={"white"} bg="teal" _hover={{ bgColor: "gray.400", color:"teal" }}>
             Add Data
           </Button>
         </Flex>

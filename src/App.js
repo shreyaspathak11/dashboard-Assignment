@@ -1,8 +1,8 @@
 import './App.css';
 import Nav from './components/Navbar';
-import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
-import Login from './components/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
 function App() {
   return (
