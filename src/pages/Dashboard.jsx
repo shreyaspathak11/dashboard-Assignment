@@ -10,6 +10,7 @@ import PolarChart from '../components/Charts/PolarChart';
 import StatBox from '../components/StatusBox/StatBox';
 import NewCustomersStatBox from '../components/StatusBox/NewCustomerStatBox';
 import MostSoldStatBox from '../components/StatusBox/MostSoldStatBox';
+import EmailForm from '../components/Forms & Tables/Feedback';
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState(initialData);
@@ -45,9 +46,10 @@ const Dashboard = () => {
         <BarChart data={tableData} />
         <LineChart data={tableData} />
       </Flex>
-      <Box display="flex" justifyContent="center" mb="10">
+      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
         <PolarChart data={tableData} />
-      </Box>
+        <EmailForm />
+      </Flex>
       
       <Footer />
     </>
