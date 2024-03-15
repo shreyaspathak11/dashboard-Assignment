@@ -10,11 +10,11 @@ import PolarChart from '../components/Charts/PolarChart';
 import StatBox from '../components/StatusBox/StatBox';
 import NewCustomersStatBox from '../components/StatusBox/NewCustomerStatBox';
 import MostSoldStatBox from '../components/StatusBox/MostSoldStatBox';
-import EmailForm from '../components/Forms & Tables/Feedback';
+import EmailForm from '../components/Forms & Tables/EmailForm';
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState(initialData);
-  const bgColor = useColorModeValue('linear(to-r, teal.200, green.200)', 'gray.700');
+  const bgColor = useColorModeValue('#FBF6EE', 'gray.700');
   
   const handleFormSubmit = (formData) => {
     const newData = {
@@ -25,7 +25,7 @@ const Dashboard = () => {
   };
 
   return (
-    <>
+    <Box bgColor={bgColor}>
       <Flex alignItems="center" justifyContent="space-evenly" direction="row" mb="10">
         <StatBox data={tableData} />
         <NewCustomersStatBox data={tableData} />
@@ -52,7 +52,7 @@ const Dashboard = () => {
       </Flex>
       
       <Footer />
-    </>
+    </ Box>
   );
 };
 

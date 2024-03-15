@@ -20,8 +20,8 @@ import logo from '../assets/logo.png';
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const bgColor = colorMode === 'light' ? '#A7FFE4' : 'gray.900';
-  const textColor = colorMode === 'light' ? 'gray.600' : 'gray.400';
+  const bgColor = colorMode === 'light' ? 'teal.300' : 'gray.900';
+  const textColor = colorMode === 'light' ? 'gray.900' : 'gray.200';
   const borderColor = colorMode === 'light' ? 'gray.200' : 'gray.600';
 
   return (
@@ -29,7 +29,7 @@ const Navbar = () => {
       <Box bgColor={bgColor} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'} boxShadow={'xl'} textColor={textColor} borderColor={borderColor}>
           <Image src={logo} alt="Logo" boxSize="50px" css={{ "&:hover": { transform: "scale(1.05)", boxShadow: "xl", }, }} />
-          <Box>DASHBOARD</Box>
+          <Box textColor={textColor} fontSize={"2xl"} fontWeight={"lg"} >ADMIN DASHBOARD</Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
               <Button onClick={toggleColorMode}>

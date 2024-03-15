@@ -4,8 +4,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
 
-    const bgColor = useColorModeValue('gray.200', 'gray.700');
-    const textColor = useColorModeValue('gray.600', 'gray.400');
+    const bgColor = useColorModeValue('gray.200', 'gray.900');
+    const textColor = useColorModeValue('gray.900', 'gray.200');
     const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   return (
