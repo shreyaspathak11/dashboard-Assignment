@@ -1,6 +1,7 @@
 import React from 'react';
 import {} from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
+import { Box } from '@chakra-ui/react';
 
 const BarChart = ({ data }) => {
   // Extracting product names and sales from the data
@@ -34,7 +35,11 @@ const BarChart = ({ data }) => {
     },
   };
 
-  return <Bar data={chartData} options={chartOptions} />;
+  return (
+  <Box w="500px" p={4} boxShadow="lg" border="1px solid"  borderColor="gray.200" borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
+    <Bar data={chartData} options={chartOptions} />
+  </Box>
+  );
 };
 
 export default BarChart;

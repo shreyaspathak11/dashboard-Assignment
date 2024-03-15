@@ -1,6 +1,7 @@
 import React from 'react';
 import {} from 'chart.js/auto';
 import { PolarArea } from 'react-chartjs-2';
+import { Box } from '@chakra-ui/react';
 
 const PolarChart = ({ data }) => {
   // Extracting product names and sales from the data
@@ -23,7 +24,11 @@ const PolarChart = ({ data }) => {
     ],
   };
 
-  return <PolarArea data={chartData} />;
+  return (
+  <Box p={4} boxShadow="lg" border="2px solid"  borderColor="gray.200" borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
+  <PolarArea data={chartData} />
+  </Box>
+  );
 };
 
 export default PolarChart;

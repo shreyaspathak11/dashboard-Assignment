@@ -1,6 +1,7 @@
 import React from 'react';
 import {} from 'chart.js/auto';
 import { Line } from 'react-chartjs-2';
+import { Box } from '@chakra-ui/react';
 
 const LineChart = ({ data }) => {
   // Extracting years and new customers from the data
@@ -36,7 +37,11 @@ const LineChart = ({ data }) => {
     },
   };
 
-  return <Line data={chartData} options={chartOptions} />;
+  return (
+  <Box w="500px" p={4} boxShadow="lg" border="1px solid"  borderColor="gray.200" borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
+    <Line data={chartData} options={chartOptions} />
+  </Box>
+    );
 };
 
 export default LineChart;

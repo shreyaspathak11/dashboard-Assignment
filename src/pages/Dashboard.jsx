@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useState } from 'react';
 import { Box, Grid, useColorModeValue, Flex } from '@chakra-ui/react';
 import Form from '../components/Forms & Tables/Form';
@@ -26,32 +25,30 @@ const Dashboard = () => {
 
   return (
     <>
-    <Flex  alignItems="center" justifyContent={"space-evenly"} direction={"row"} mb={"10"}>
+      <Flex alignItems="center" justifyContent="space-evenly" direction="row" mb="10">
         <StatBox data={tableData} />
         <NewCustomersStatBox data={tableData} />
         <MostSoldStatBox data={tableData} />
       </Flex>
 
-      <Flex direction="column" alignItems="center">
-        <BarChart data={tableData} />
-        <LineChart data={tableData} />
-        <PolarChart data={tableData} />
-      </Flex>
-
-      <Box mt={10} p={4} boxShadow="md" borderRadius="md" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
-        <Grid templateColumns="1fr" gap={6} justifyItems="center" alignItems="" mt={10}>
+      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
           <Box display="flex" justifyContent="center" >
             <Form onSubmit={handleFormSubmit} />
           </Box>
           <Box>
             <TableComponent data={tableData} />
           </Box>
-        </Grid>
+          </Flex>
+
+        
+      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
+        <BarChart data={tableData} />
+        <LineChart data={tableData} />
+      </Flex>
+      <Box display="flex" justifyContent="center" mb="10">
+        <PolarChart data={tableData} />
       </Box>
       
-      
-      
-
       <Footer />
     </>
   );
