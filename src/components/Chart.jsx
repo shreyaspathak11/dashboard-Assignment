@@ -1,6 +1,7 @@
 // Chart.js
 import React, { useState } from 'react';
-import { Line, Bar, Pie, Scatter, Radar } from 'react-chartjs-2';
+import {} from 'chart.js/auto'; 
+import { Line, Bar, Radar } from 'react-chartjs-2';
 import { Button, ButtonGroup, Box, Text } from '@chakra-ui/react';
 
 const Chart = ({ data }) => {

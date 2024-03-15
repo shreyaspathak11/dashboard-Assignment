@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Box,
   Flex,
@@ -9,25 +9,26 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
-  useColorModeValue,
+  useColorMode,
   Stack,
   Center,
+  Image,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
-  
-  
-    const [colorMode, setColorMode] = useState('light');
-    const toggleColorMode = () => {
-        setColorMode(colorMode === 'light' ? 'dark' : 'light');
-    };
-  
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const bgColor = colorMode === 'light' ? '#A7FFE4' : 'gray.900';
+  const textColor = colorMode === 'light' ? 'gray.600' : 'gray.400';
+  const borderColor = colorMode === 'light' ? 'gray.200' : 'gray.600';
+
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box bgColor={bgColor} px={4}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'} boxShadow={'xl'} textColor={textColor} borderColor={borderColor}>
+          <Image src={logo} alt="Logo" boxSize="50px" css={{ "&:hover": { transform: "scale(1.05)", boxShadow: "xl", }, }} />
           <Box>DASHBOARD</Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -61,7 +62,6 @@ const Navbar = () => {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
                   <MenuItem>Account Settings</MenuItem>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>
@@ -75,4 +75,3 @@ const Navbar = () => {
 }
 
 export default Navbar;
-  
