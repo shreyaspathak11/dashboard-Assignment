@@ -13,7 +13,7 @@ const Form = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Flex direction="column" alignItems="flex-start">
+      <Flex direction="column" >
       <Heading fontSize="xl" fontWeight="bold" mb={4}>Please Add New Data Here:</Heading>
         <Stack spacing={4}>
           <Input

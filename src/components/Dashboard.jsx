@@ -1,6 +1,6 @@
 // Dashboard.js
 import React, { useState } from 'react';
-import { Box, Divider, Flex } from '@chakra-ui/react';
+import { Box, Divider, Grid } from '@chakra-ui/react';
 import Form from './Form';
 import TableComponent from './Table';
 import Chart from './Chart';
@@ -17,16 +17,17 @@ const Dashboard = () => {
     setTableData([...tableData, newData]);
   };
 
-  return (
-    <Flex direction="column" alignItems="center" mt={10}>
-      <Box width="50%">
+  return (<>
+    <Grid templateColumns="1fr 1fr" gap={6} justifyItems="center" alignItems="start" mt={10}>
+      <Box>
         <Form onSubmit={handleFormSubmit} />
-        <Divider my={6} />
+      </Box>
+      <Box>
         <TableComponent data={tableData} />
       </Box>
-      <Divider my={6} />
-      <Chart data={tableData} />
-    </Flex>
+    </Grid>
+    <Chart data={tableData} />
+  </>
   );
 };
 

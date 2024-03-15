@@ -1,7 +1,7 @@
 // Chart.js
 import React, { useState } from 'react';
-import { Line, Bar, Pie } from 'react-chartjs-2';
-import { Button, ButtonGroup, Box } from '@chakra-ui/react';
+import { Line, Bar, Pie, Scatter, Radar } from 'react-chartjs-2';
+import { Button, ButtonGroup, Box, Text } from '@chakra-ui/react';
 
 const Chart = ({ data }) => {
   const [chartType, setChartType] = useState('line');
@@ -16,8 +16,8 @@ const Chart = ({ data }) => {
         return <Line data={chartData} />;
       case 'bar':
         return <Bar data={chartData} />;
-      case 'pie':
-        return <Pie data={chartData} />;
+      case 'Radar':
+        return <Radar data={chartData} />;
       default:
         return null;
     }
@@ -44,13 +44,16 @@ const Chart = ({ data }) => {
   };
 
   return (
-    <Box>
+    <Box mt={10} >
+    <Text fontSize="xl" fontWeight="bold" mb={4}>Chart Plotted</Text>
       <ButtonGroup mb={4}>
         <Button onClick={() => handleChangeChartType('line')}>Line</Button>
         <Button onClick={() => handleChangeChartType('bar')}>Bar</Button>
-        <Button onClick={() => handleChangeChartType('pie')}>Pie</Button>
+        <Button onClick={() => handleChangeChartType('Radar')}>Radar</Button>
       </ButtonGroup>
+      <Box mt={10} h="200px"  display="flex" alignItems="center" justifyContent="space-between">
       {getChartComponent()}
+      </Box>
     </Box>
   );
 };
