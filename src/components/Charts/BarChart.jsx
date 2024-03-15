@@ -1,9 +1,11 @@
 import React from 'react';
 import {} from 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
-import { Box } from '@chakra-ui/react';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 
 const BarChart = ({ data }) => {
+  const bgColor = useColorModeValue('gray.50', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
   // Extracting product names and sales from the data
   const products = data.map(item => item.productName);
   const sales = data.map(item => item.sales);
@@ -36,7 +38,7 @@ const BarChart = ({ data }) => {
   };
 
   return (
-  <Box w="500px" p={4} boxShadow="lg" border="1px solid"  borderColor="gray.200" borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
+  <Box w="500px" p={4} boxShadow="lg" border="1px solid" bgColor={bgColor}  borderColor={borderColor} borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
     <Bar data={chartData} options={chartOptions} />
   </Box>
   );

@@ -37,7 +37,7 @@ const EmailForm = () => {
   };
 
   return (
-    <Box p={4} w="50%"  margin="0 ">
+    <Box p={4} w="40%"  margin="0">
       <Heading as="h2" size="lg" mb={4}>Send Email to Customers</Heading>
       <form onSubmit={handleSubmit}>
         <Input
@@ -73,7 +73,7 @@ const EmailForm = () => {
             />
           </Flex>
         ))}
-        <Button type="submit" colorScheme="teal">Send</Button>
+        <Button w="20%" type="submit" colorScheme="teal" _hover={{ bgColor: "gray.400", color:"teal" }}>Send</Button>
       </form>
     </Box>
   );
