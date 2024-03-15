@@ -70,7 +70,6 @@ const EmailForm = () => {
               icon={<CloseIcon />}
               size="sm"
               onClick={() => handleRemoveAttachment(index)}
-              ml={2}
             />
           </Flex>
         ))}

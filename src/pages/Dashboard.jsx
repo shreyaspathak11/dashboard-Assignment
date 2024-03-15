@@ -14,7 +14,7 @@ import EmailForm from '../components/Forms & Tables/EmailForm';
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState(initialData);
-  const bgColor = useColorModeValue('#FBF6EE', 'gray.700');
+  const bgColor = useColorModeValue('#E0F4FF', 'gray.700');
   
   const handleFormSubmit = (formData) => {
     const newData = {

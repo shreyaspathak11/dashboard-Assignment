@@ -1,7 +1,9 @@
 import React from 'react';
-import { Stat, StatLabel, StatNumber, StatHelpText, StatArrow, Box } from '@chakra-ui/react';
+import { Stat, StatLabel, StatNumber, StatHelpText, StatArrow, Box, useColorModeValue } from '@chakra-ui/react';
 
 const StatBox = ({ data }) => {
+  const bgColor = useColorModeValue('gray.50', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
   // Calculate sales for the current year and last year
   const currentYearSales = data.find(item => new Date(item.date).getFullYear() === new Date().getFullYear())?.sales || 0;
   const lastYearSales = data.find(item => new Date(item.date).getFullYear() === new Date().getFullYear() - 1)?.sales || 0;
@@ -11,23 +13,23 @@ const StatBox = ({ data }) => {
 
   return (
     <Box
-    mt={10}
-    p={4}
-    bgColor="gray.50"
-    width="300px" 
-    height="200px"
-    border="2px solid"
-    borderColor="gray.200"
-    borderRadius="lg"
-    boxShadow="lg"
-    transition="all 0.2s"
-    _hover={{
-      boxShadow: 'lg',
-    }}
-    display="flex" 
-    alignItems="center" 
-    justifyContent="center" 
-  >
+      mt={10}
+      p={4}
+      bgColor={bgColor}
+      width="300px" // Set a fixed width
+      height="200px" // Set a fixed height
+      border="2px solid"
+      borderColor={borderColor}
+      borderRadius="lg"
+      boxShadow="lg"
+      transition="all 0.2s"
+      _hover={{
+        boxShadow: 'lg',
+      }}
+      display="flex" // Use Flexbox
+      alignItems="center" // Center vertically
+      justifyContent="center" // Center horizontally
+    >
       <Stat>
         <StatLabel fontSize={"20px"} color="gray"> Sales</StatLabel>
         <StatNumber fontSize={"30px"} color={"teal"}>{currentYearSales}</StatNumber>

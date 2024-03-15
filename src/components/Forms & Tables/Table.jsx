@@ -1,13 +1,19 @@
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td, Heading, Flex, Box } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Heading, Flex, Box, useColorModeValue } from '@chakra-ui/react';
 
 const TableComponent = ({ data }) => {
+
+  const bgColor = useColorModeValue('gray.50', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+
   return (
     <Box
       w="90%"
       p={4}
       boxShadow="lg"
-      border="1px solid"  borderColor="gray.200"
+      border="1px solid"  
+      borderColor={borderColor}
+      bgColor={bgColor}
       borderRadius="lg"
       transition="box-shadow 0.3s ease"
       _hover={{
