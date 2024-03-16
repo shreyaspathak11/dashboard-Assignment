@@ -119,7 +119,7 @@ const SignupForm = () => {
         )}
         <Flex justifyContent="center" mt={5}>
           <Text>Already have an account? </Text>
-          <Link as={RouterLink} to="/login" color="teal.500" fontWeight="bold">Login</Link>
+          <Link as={RouterLink} to="/" color="teal.500" fontWeight="bold">Login</Link>
         </Flex>
       </Box>
     </Flex>

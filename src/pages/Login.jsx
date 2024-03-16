@@ -15,8 +15,8 @@ const LoginForm = () => {
   const borderColor = useColorModeValue('gray.200', 'gray.700');
   const { dispatch } = useContext(AuthContext);
 
-  const toast = useToast(); // Initialize useToast here
-  const Navigate = useNavigate(); // Initialize useNavigate here
+  const toast = useToast(); 
+  const Navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();

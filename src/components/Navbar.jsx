@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Flex,
@@ -13,18 +13,48 @@ import {
   Stack,
   Center,
   Image,
+  useToast,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import logo from '../assets/logo.png';
-import user from '../assets/user.png';
+import userimage from '../assets/user.png';
+import { AuthContext } from '../authContext/AuthContext';
+import { logoutCall } from '../authContext/apiCalls';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const Navigate = useNavigate();
+  const toast = useToast();
+
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bgColor = colorMode === 'light' ? '#9BB0C1' : 'gray.900';
   const textColor = colorMode === 'light' ? 'gray.900' : 'gray.200';
   const borderColor = colorMode === 'light' ? 'gray.200' : 'gray.600';
 
+  const {user, dispatch} = useContext(AuthContext)
+  const handleLogout = () => {
+    try{
+      logoutCall(dispatch)
+      Navigate("/")
+      toast({
+        title: 'Logout successful',
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+
+      })
+    }catch(error){
+      toast({
+        title: 'Error',
+            description: 'An error occurred',
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+      })
+    }
+  }
+  
   return (
     <>
       <Box bgColor={bgColor} px={4}>
@@ -46,7 +76,7 @@ const Navbar = () => {
                 >
                   <Avatar
                     size={'sm'}
-                    src={user}
+                    src={userimage}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -54,17 +84,17 @@ const Navbar = () => {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={user}
+                      src={userimage}
                     />
                   </Center>
                   <br />
                   <Center>
-                    <p>Username</p>
+                    <p>{user.username}</p>
                   </Center>
                   <br />
                   <MenuDivider />
                   <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>
               </Menu>
             </Stack>

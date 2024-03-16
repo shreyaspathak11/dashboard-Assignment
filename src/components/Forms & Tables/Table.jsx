@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td, Heading, Box, useColorModeValue, SimpleGrid } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Heading, Box, useColorModeValue } from '@chakra-ui/react';
 
 const TableComponent = ({ data }) => {
   const bgColor = useColorModeValue('gray.50', 'gray.800');
