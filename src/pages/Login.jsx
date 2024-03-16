@@ -8,6 +8,7 @@ const LoginForm = () => {
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const backgroundColor = useColorModeValue('#E0F4FF', 'gray.900');
   const inputBgColor = useColorModeValue('gray.50', 'gray.700');
+  const borderColor = useColorModeValue('gray.200', 'gray.700');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +27,7 @@ const LoginForm = () => {
         >
           {useColorModeValue(<FaMoon />, <FaSun />)}
         </Button>
-    <Box w={{ base: '100%', md: '400px' }} p={5} m={5} boxShadow="xl" bgColor={bgColor} border="1px solid" borderColor="gray.200" borderRadius="lg">
+    <Box w={{ base: '100%', md: '400px' }} p={5} m={5} boxShadow="xl" bgColor={bgColor} border="1px solid"  borderColor={borderColor} borderRadius="lg">
       <Heading fontSize="2xl" textAlign="center" mb={5} fontFamily={"Roboto Condensed"}>LOGIN</Heading>
       <form onSubmit={handleSubmit}>
         <Flex direction="column" alignItems="center">
