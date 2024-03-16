@@ -6,7 +6,7 @@ import logo from '../assets/logo.png';
 import axios from 'axios';
 
 const SignupForm = () => {
-  const serverURL = "http://localhost:5000"
+  const serverURL = process.env.REACT_APP_SERVER_URL ||"http://localhost:5000"
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const backgroundColor = useColorModeValue('#E0F4FF', 'gray.900');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -40,7 +40,7 @@ const SignupForm = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate('/login');
+      navigate('/');
       console.log('Signup successful:', response.data);
     } catch (error) {
       // Assuming your API returns an error message in the response data upon failed signup

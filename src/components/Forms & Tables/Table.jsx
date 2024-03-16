@@ -4,6 +4,7 @@ import { Table, Thead, Tbody, Tr, Th, Td, Heading, Box, useColorModeValue, Simpl
 const TableComponent = ({ data }) => {
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
+  const shouldScroll = data.length > 5;
 
   return (
     <Box
@@ -23,7 +24,32 @@ const TableComponent = ({ data }) => {
       <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="bold" textAlign="center" mb={4} fontFamily={"Roboto Condensed"}>
         DATA TABLE
       </Heading>
-      <Box overflowX="auto">
+      {shouldScroll ? (
+        <Box overflowX="auto">
+          <Table variant="striped" colorScheme="teal">
+            <Thead>
+              <Tr>
+                <Th display={{ base: 'none', md: 'table-cell' }}>Sl. No.</Th>
+                <Th>Product Name</Th>
+                <Th>Sales</Th>
+                <Th>New Customers</Th>
+                <Th>Date</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {data.map((item, index) => (
+                <Tr key={item.id}>
+                  <Td display={{ base: 'none', md: 'table-cell' }}>{index + 1}</Td>
+                  <Td>{item.productName}</Td>
+                  <Td>{item.sales}</Td>
+                  <Td>{item.newCustomers}</Td>
+                  <Td>{item.date}</Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </Box>
+      ) : (
         <Table variant="striped" colorScheme="teal">
           <Thead>
             <Tr>
@@ -46,7 +72,7 @@ const TableComponent = ({ data }) => {
             ))}
           </Tbody>
         </Table>
-      </Box>
+      )}
     </Box>
   );
 };
