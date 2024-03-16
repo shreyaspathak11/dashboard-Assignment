@@ -12,7 +12,7 @@ const Footer = () => {
     const LinkedInLink = "https://www.linkedin.com/in/shreyas-pathak-11s/";
 
   return (
-    <Box as="footer"  bg={bgColor}>
+    <Box as="footer"  bg={bgColor} w={"100%"}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'} boxShadow={'xl'} textColor={textColor} borderColor={borderColor}>
         <Button ml={4} leftIcon={<FaGithub />} colorScheme="black" variant="outline" css={{ "&:hover": { transform: "scale(1.05)", boxShadow: "xl", color:"black" }, }} 
         onClick={() => window.open(GitHubLink, "_blank")}
