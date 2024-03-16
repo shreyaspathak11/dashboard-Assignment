@@ -39,6 +39,7 @@ const LoginForm = () => {
             type="email"
             bgColor={inputBgColor}
             mb={3}
+            autoComplete='email'
             required
           />
           <Input
@@ -46,6 +47,7 @@ const LoginForm = () => {
             type="password"
             bgColor={inputBgColor}
             mb={5}
+            autoComplete='current-password'
             required
           />
           <Button type="submit" colorScheme="teal" w="100%">Login</Button>

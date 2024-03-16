@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Button, Flex, Heading, Image, Input, Link, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, Button, Flex, Heading, Image, Input, Link, Text, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { FaArrowRight, FaMoon, FaSun } from "react-icons/fa";
 import logo from '../assets/logo.png';
+import axios from 'axios';
 
 const SignupForm = () => {
+  const serverURL = "http://localhost:5000"
   const bgColor = useColorModeValue('gray.100', 'gray.800');
   const backgroundColor = useColorModeValue('#E0F4FF', 'gray.900');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -14,6 +16,8 @@ const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const handleNextStep = () => {
     if (step === 1) {
@@ -22,9 +26,34 @@ const SignupForm = () => {
     }
   };
 
-  const handleSignup = () => {
-    // Submit the signup data (email, password, username) to your backend
-    console.log('Signup:', { email, password, username });
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post(`${serverURL}/api/auth/register`, {
+        email,
+        password,
+        username,
+      });
+      // Assuming your API returns a success message upon successful signup
+      toast({
+        title: "You are registered",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate('/login');
+      console.log('Signup successful:', response.data);
+    } catch (error) {
+      // Assuming your API returns an error message in the response data upon failed signup
+      const errorMessage = error.response.data.error || 'An error occurred';
+      toast({
+        title: "Error occurred",
+        description: errorMessage,
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+      console.error('Signup error:', error.response);
+    }
   };
 
   return (
@@ -53,6 +82,7 @@ const SignupForm = () => {
                 bgColor={inputBgColor}
                 mb={3}
                 value={email}
+                autoComplete='email'
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
@@ -62,6 +92,7 @@ const SignupForm = () => {
                 bgColor={inputBgColor}
                 mb={5}
                 value={password}
+                autoComplete='new-password'
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
@@ -78,6 +109,7 @@ const SignupForm = () => {
                 bgColor={inputBgColor}
                 mb={5}
                 value={username}
+                autoComplete='username'
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
