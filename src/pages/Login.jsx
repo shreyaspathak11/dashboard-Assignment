@@ -1,91 +1,59 @@
-import React, { useState } from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  Input,
-  Stack,
-  Button,
-  Text,
-  useColorModeValue,
-  Link,
-  useToast,
-  Flex,
-  Spinner, 
-} from '@chakra-ui/react';
+import React from 'react';
+import { Box, Button, Flex, Heading, Input, Link, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
+const LoginForm = () => {
+  const { toggleColorMode } = useColorMode();
+  const bgColor = useColorModeValue('gray.100', 'gray.800');
+  const backgroundColor = useColorModeValue('#E0F4FF', 'gray.900');
+  const inputBgColor = useColorModeValue('gray.50', 'gray.700');
 
-const Login = () => {
-  const bgGradient = useColorModeValue('linear(to-r, teal.200, green.200)', 'gray.700');
-  const textColor = useColorModeValue('gray.700', 'gray.100');
-  const [loading, setLoading] = useState(false);
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your login logic here
+  };
 
   return (
-    <Flex minH="100vh" bgGradient={bgGradient} align="center" justify="center" textColor={textColor} fontFamily={'Alkatra'}>
-      <Container
-        maxW={{ base: 'xs', md: 'md' }}
-        bg={'white'}
-        boxShadow={'lg'}
-        rounded={'lg'}
-        p={6}
-        direction="column"
-      >
-        <Heading as="h2" fontSize={{ base: 'xl', md: '2xl' }} textAlign="center" fontFamily={'Alkatra'} mb={5}>
-          Login to Your Account
-        </Heading>
-        <Box mt={8} mb={3}>
+    <Flex justifyContent="center" alignItems="center" h="100vh" bgColor={backgroundColor}>
+    <Button
+          position="absolute"
+          top={2}
+          right={2}
+          onClick={toggleColorMode}
+          zIndex={1}
+          size="sm"
+        >
+          {useColorModeValue(<FaMoon />, <FaSun />)}
+        </Button>
+    <Box w={{ base: '100%', md: '400px' }} p={5} boxShadow="xl" bgColor={bgColor} border="1px solid" borderColor="gray.200" borderRadius="lg">
+      <Heading fontSize="2xl" textAlign="center" mb={5} fontFamily={"Roboto Condensed"}>LOGIN</Heading>
+      <form onSubmit={handleSubmit}>
+        <Flex direction="column" alignItems="center">
           <Input
+            placeholder="Email"
             type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email Address"
-            size="lg"
-            rounded="full"
-            autoComplete="email" 
+            bgColor={inputBgColor}
+            mb={3}
+            required
           />
-        </Box>
-        <Box mb={6}>
           <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
-            size="lg"
-            rounded="full"
-            autoComplete="current-password" 
+            type="password"
+            bgColor={inputBgColor}
+            mb={5}
+            required
           />
-        </Box>
-        <Stack spacing={6}>
-          <Button
-            bg={'teal.500'}
-            color={'white'}
-            _hover={{ bg: 'teal.600' }}
-            rounded={'full'}
-            size="lg"
-            
-            disabled={loading} 
-          >
-            {loading ? <Spinner size="sm" color="white" /> : 'Login'}
-          </Button>
-          <Stack direction={{ base: 'column', md: 'row' }} align={'center'} justify={'space-between'}>
-            <Text fontSize="md">
-              Don't have an account?{' '}
-              <Link color="teal.500" href="register" fontWeight="semibold">
-                Sign Up
-              </Link>
-            </Text>
-
-          </Stack>
-        </Stack>
-      </Container>
+          <Button type="submit" colorScheme="teal" w="100%">Login</Button>
+        </Flex>
+      </form>
+      <Flex justifyContent="center" mt={5}>
+        <Text>Don't have an account? </Text>
+        <Link as={RouterLink} to="/signup" color="teal.500" fontWeight="bold">Sign up</Link>
+      </Flex>
+    </Box>
     </Flex>
   );
 };
 
-export default Login;
+export default LoginForm;

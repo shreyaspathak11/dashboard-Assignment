@@ -4,6 +4,7 @@ import { Stat, StatLabel, StatNumber, StatHelpText, StatArrow, Box, useColorMode
 const StatBox = ({ data }) => {
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
+
   // Calculate sales for the current year and last year
   const currentYearSales = data.find(item => new Date(item.date).getFullYear() === new Date().getFullYear())?.sales || 0;
   const lastYearSales = data.find(item => new Date(item.date).getFullYear() === new Date().getFullYear() - 1)?.sales || 0;
@@ -13,10 +14,10 @@ const StatBox = ({ data }) => {
 
   return (
     <Box
-      mt={10}
+      mt={{ base: 4, md: 10 }}
       p={4}
       bgColor={bgColor}
-      width="300px" // Set a fixed width
+      width={{ base: '100%', md: '300px' }}
       height="200px" // Set a fixed height
       border="2px solid"
       borderColor={borderColor}
@@ -31,9 +32,9 @@ const StatBox = ({ data }) => {
       justifyContent="center" // Center horizontally
     >
       <Stat>
-        <StatLabel fontSize={"20px"} color="gray"> Sales</StatLabel>
-        <StatNumber fontSize={"30px"} color={"teal"}>{currentYearSales}</StatNumber>
-        <StatHelpText fontSize={"15px"} color="gray">
+        <StatLabel fontSize={{ base: '14px', md: '20px' }} color="gray">Sales</StatLabel>
+        <StatNumber fontSize={{ base: '24px', md: '30px' }} color="teal">{currentYearSales}</StatNumber>
+        <StatHelpText fontSize={{ base: '12px', md: '15px' }} color="gray">
           <StatArrow
             type={salesDifference > 0 ? 'increase' : 'decrease'}
             color={salesDifference > 0 ? 'green.400' : 'red.400'}

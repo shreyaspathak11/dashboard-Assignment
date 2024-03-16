@@ -37,22 +37,24 @@ const EmailForm = () => {
   };
 
   return (
-    <Box p={4} w="40%"  margin="0">
-      <Heading as="h2" size="lg" mb={4}>Send Email to Customers</Heading>
+    <Box p={4} width={{ base: '100%', sm: '70%', md: '40%' }} margin="0" fontFamily={"Roboto Condensed"}>
+      <Heading as="h2" size="lg" mb={4} fontFamily={"Roboto Condensed"}>Send Email to Customers</Heading>
       <form onSubmit={handleSubmit}>
         <Input
           name="Email"
           value={formData.email}
           type='email'
           onChange={handleInputChange}
+          borderColor={"blue.400"}
           placeholder="Email"
           mb={4}
         />
         <Textarea
           name="message"
-            type="text"
+          type="text"
           value={formData.message}
           onChange={handleInputChange}
+          borderColor={"blue.400"}
           placeholder="Message"
           mb={4}
         />
@@ -60,10 +62,11 @@ const EmailForm = () => {
           type="file"
           multiple
           onChange={handleAttachmentChange}
+          borderColor={"blue.400"}
           mb={4}
         />
         {formData.attachments.map((file, index) => (
-          <Flex key={index} direction={"row"} justifyContent="space-evenly" mb={2}>
+          <Flex key={index} direction={"row"} justifyContent="space-between" alignItems="center" mb={2}>
             <Box>{file.name}</Box>
             <IconButton
               aria-label="Remove attachment"
@@ -73,7 +76,7 @@ const EmailForm = () => {
             />
           </Flex>
         ))}
-        <Button w="20%" type="submit" colorScheme="teal" _hover={{ bgColor: "gray.400", color:"teal" }}>Send</Button>
+        <Button w="40%" type="submit" colorScheme="teal" _hover={{ bgColor: "gray.400", color:"teal" }}>Send</Button>
       </form>
     </Box>
   );

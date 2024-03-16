@@ -16,11 +16,12 @@ import {
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import logo from '../assets/logo.png';
+import user from '../assets/user.png';
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const bgColor = colorMode === 'light' ? 'teal.300' : 'gray.900';
+  const bgColor = colorMode === 'light' ? '#9BB0C1' : 'gray.900';
   const textColor = colorMode === 'light' ? 'gray.900' : 'gray.200';
   const borderColor = colorMode === 'light' ? 'gray.200' : 'gray.600';
 
@@ -29,10 +30,10 @@ const Navbar = () => {
       <Box bgColor={bgColor} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'} boxShadow={'xl'} textColor={textColor} borderColor={borderColor}>
           <Image src={logo} alt="Logo" boxSize="50px" css={{ "&:hover": { transform: "scale(1.05)", boxShadow: "xl", }, }} />
-          <Box textColor={textColor} fontSize={"2xl"} fontWeight={"lg"} >ADMIN DASHBOARD</Box>
+          <Box textColor={textColor} fontSize={"xl"} fontWeight={"lg"}  >ADMIN DASHBOARD</Box>
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
+              <Button onClick={toggleColorMode} rounded={'full'}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
               <Menu>
@@ -45,7 +46,7 @@ const Navbar = () => {
                 >
                   <Avatar
                     size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={user}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -53,7 +54,7 @@ const Navbar = () => {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
+                      src={user}
                     />
                   </Center>
                   <br />

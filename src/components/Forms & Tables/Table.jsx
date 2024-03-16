@@ -1,15 +1,15 @@
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td, Heading, Flex, Box, useColorModeValue } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, Heading, Box, useColorModeValue, SimpleGrid } from '@chakra-ui/react';
 
 const TableComponent = ({ data }) => {
-
   const bgColor = useColorModeValue('gray.50', 'gray.800');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   return (
     <Box
-      w="90%"
+      w="100%"
       p={4}
+      m={4}
       boxShadow="lg"
       border="1px solid"  
       borderColor={borderColor}
@@ -20,14 +20,14 @@ const TableComponent = ({ data }) => {
         boxShadow: "lg",
       }}
     >
-      <Flex direction="column" alignItems="center">
-        <Heading fontSize="2xl" fontWeight="bold" mt={2} mb={2}>
-          Data Table
-        </Heading>
-        <Table variant="striped" colorScheme="teal" >
+      <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="bold" textAlign="center" mb={4} fontFamily={"Roboto Condensed"}>
+        DATA TABLE
+      </Heading>
+      <Box overflowX="auto">
+        <Table variant="striped" colorScheme="teal">
           <Thead>
             <Tr>
-              <Th>Sl. No.</Th>
+              <Th display={{ base: 'none', md: 'table-cell' }}>Sl. No.</Th>
               <Th>Product Name</Th>
               <Th>Sales</Th>
               <Th>New Customers</Th>
@@ -37,16 +37,16 @@ const TableComponent = ({ data }) => {
           <Tbody>
             {data.map((item, index) => (
               <Tr key={item.id}>
-                <Td whiteSpace="nowrap">{index + 1}</Td>
-                <Td whiteSpace="nowrap">{item.productName}</Td>
-                <Td whiteSpace="nowrap">{item.sales}</Td>
-                <Td whiteSpace="nowrap">{item.newCustomers}</Td>
-                <Td whiteSpace="nowrap">{item.date}</Td>
+                <Td display={{ base: 'none', md: 'table-cell' }}>{index + 1}</Td>
+                <Td>{item.productName}</Td>
+                <Td>{item.sales}</Td>
+                <Td>{item.newCustomers}</Td>
+                <Td>{item.date}</Td>
               </Tr>
             ))}
           </Tbody>
         </Table>
-      </Flex>
+      </Box>
     </Box>
   );
 };

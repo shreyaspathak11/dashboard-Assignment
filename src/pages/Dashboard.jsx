@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Grid, useColorModeValue, Flex } from '@chakra-ui/react';
+import { Box, useColorModeValue, Flex, Stack } from '@chakra-ui/react';
 import Form from '../components/Forms & Tables/Form';
 import TableComponent from '../components/Forms & Tables/Table';
 import { initialData } from '../assets/data';
@@ -11,11 +11,12 @@ import StatBox from '../components/StatusBox/StatBox';
 import NewCustomersStatBox from '../components/StatusBox/NewCustomerStatBox';
 import MostSoldStatBox from '../components/StatusBox/MostSoldStatBox';
 import EmailForm from '../components/Forms & Tables/EmailForm';
+import Navbar from '../components/Navbar';
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState(initialData);
   const bgColor = useColorModeValue('#E0F4FF', 'gray.700');
-  
+
   const handleFormSubmit = (formData) => {
     const newData = {
       id: tableData.length + 1,
@@ -26,33 +27,36 @@ const Dashboard = () => {
 
   return (
     <Box bgColor={bgColor}>
-      <Flex alignItems="center" justifyContent="space-evenly" direction="row" mb="10">
+    <Navbar /> 
+      <Flex alignItems="center" justifyContent="space-evenly" direction="row" mb={10} flexWrap="wrap">
         <StatBox data={tableData} />
         <NewCustomersStatBox data={tableData} />
         <MostSoldStatBox data={tableData} />
       </Flex>
 
-      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
-          <Box display="flex" justifyContent="center" >
-            <Form onSubmit={handleFormSubmit} />
-          </Box>
-          <Box>
-            <TableComponent data={tableData} />
-          </Box>
-          </Flex>
-
-        
-      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
-        <BarChart data={tableData} />
-        <LineChart data={tableData} />
+      <Flex alignItems="center" justifyContent="space-evenly" mb={10} flexWrap="wrap">
+        <Box mr={{ base: 0, md: 4 }}>
+          <BarChart data={tableData} />
+        </Box>
+        <Box ml={{ base: 0, md: 4 }}>
+          <LineChart data={tableData} />
+        </Box>
       </Flex>
-      <Flex alignItems="center" justifyContent="space-evenly" mb="10">
+
+      <Stack direction={{ base: 'column', md: 'row' }} spacing="4" mb={10} justifyContent="center">
+        <Form onSubmit={handleFormSubmit} />
+        <TableComponent data={tableData} />
+      </Stack>
+
+      
+
+      <Flex alignItems="center" justifyContent="space-evenly" mb={10} flexWrap="wrap">
         <PolarChart data={tableData} />
         <EmailForm />
-      </Flex>
+      </Flex>  
       
       <Footer />
-    </ Box>
+    </Box>
   );
 };
 

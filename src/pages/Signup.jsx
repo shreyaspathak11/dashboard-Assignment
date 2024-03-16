@@ -1,86 +1,93 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  FormControl,
-  FormLabel,
-  Input,
-  Checkbox,
-  Link,
-  Button,
-  useColorModeValue,
-  useToast,
-} from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Input, Link, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
+import { FaArrowRight, FaMoon, FaSun } from "react-icons/fa";
 
-const Signup = () => {
-    const bgGradient = useColorModeValue('linear(to-r, teal.200, green.200)', 'gray.700');
-  const textColor = useColorModeValue('gray.800', 'white');
-  const bg = useColorModeValue('white', 'gray.800');
- 
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+const SignupForm = () => {
+  const bgColor = useColorModeValue('gray.100', 'gray.800');
+  const backgroundColor = useColorModeValue('#E0F4FF', 'gray.900');
+  const inputBgColor = useColorModeValue('gray.50', 'gray.700');
+  const { toggleColorMode } = useColorMode();
+  const [step, setStep] = useState(1);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [agreeTerms, setAgreeTerms] = useState(false);
+  const [username, setUsername] = useState('');
 
+  const handleNextStep = () => {
+    if (step === 1) {
+      // Validate email and password if needed
+      setStep(2);
+    }
+  };
 
-    return (
-        <Flex align="center" justify="center" minH="100vh" bgGradient={bgGradient} fontFamily="Alkatra">
-          <Box
-            maxW={{ base: '90%', md: '80%' }}
-            borderWidth="1px"
-            borderRadius="lg"
-            p="6"
-            bg={bg}
-            boxShadow="md"
-            textColor={textColor}
-          >
-            <Box mb="6" textAlign="center">
-              <Heading size="lg" fontWeight="bold" textColor="teal.500">
-                Sign Up
-              </Heading>
-              <Text fontSize="sm">Please fill in the form to create your account.</Text>
-            </Box>
-            <form>
-              <FormControl id="firstName" isRequired>
-                <FormLabel>First Name</FormLabel>
-                <Input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="Shreyas" autoComplete="given-name" />
-              </FormControl>
-              <FormControl id="lastName" mt="4" isRequired>
-                <FormLabel>Last Name</FormLabel>
-                <Input type="text" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Pathak" autoComplete="family-name" />
-              </FormControl>
-              <FormControl id="email" mt="4" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="shreyas@example.com" autoComplete="email"/>
-              </FormControl>
-              <FormControl id="password" mt="4" isRequired>
-                <FormLabel>Password</FormLabel>
-                <Input type="password" name="password" placeholder="********" onChange={(e) => setPassword(e.target.value)} autoComplete="password"/>
-              </FormControl>
-              <FormControl mt="4" display="flex" alignItems="center">
-                <Checkbox isChecked={agreeTerms} onChange={() => setAgreeTerms(!agreeTerms)}>
-                  I agree to the{' '}
-                  <Link color="teal.500" href="./terms">
-                    Terms and Conditions
-                  </Link>
-                </Checkbox>
-              </FormControl>
-              <Button colorScheme="teal" size="lg" mt="6" w="100%" type="submit"  isDisabled={!agreeTerms}>
-                Register
-              </Button>
-            </form>
-            <Text mt="8" textAlign="center" fontWeight="bold">
-              Already have an account? <br />
-              <Link href="/" color="teal.500" fontWeight="semibold"
-              >Login</Link>
-            </Text>
-          </Box>
+  const handleSignup = () => {
+    // Submit the signup data (email, password, username) to your backend
+    console.log('Signup:', { email, password, username });
+  };
+
+  return (
+    <Flex justifyContent="center" alignItems="center" h="100vh" bgColor={backgroundColor}>
+    <Button
+          position="absolute"
+          top={2}
+          right={2}
+          onClick={toggleColorMode}
+          zIndex={1}
+          size="sm"
+        >
+          {useColorModeValue(<FaMoon />, <FaSun />)}
+        </Button>
+      <Box position="relative" w={{ base: '100%', md: '400px' }} p={5} m={5} boxShadow="xl" bgColor={bgColor} border="1px solid" borderColor="gray.200" borderRadius="lg">
+        
+        <Heading fontSize="2xl" textAlign="center" mb={5} fontFamily={"Roboto Condensed"}>SIGN UP</Heading>
+        {step === 1 && (
+          <form onSubmit={(e) => { e.preventDefault(); handleNextStep(); }}>
+            <Flex direction="column" alignItems="center">
+              <Input
+                placeholder="Email"
+                type="email"
+                bgColor={inputBgColor}
+                mb={3}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <Input
+                placeholder="Password"
+                type="password"
+                bgColor={inputBgColor}
+                mb={5}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <Button type="submit" colorScheme="teal">Next<FaArrowRight /></Button>
+            </Flex>
+          </form>
+        )}
+        {step === 2 && (
+          <form onSubmit={(e) => { e.preventDefault(); handleSignup(); }}>
+            <Flex direction="column" alignItems="center">
+              <Input
+                placeholder="Username"
+                type="text"
+                bgColor={inputBgColor}
+                mb={5}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <Button type="submit" colorScheme="teal">Sign up</Button>
+            </Flex>
+          </form>
+        )}
+        <Flex justifyContent="center" mt={5}>
+          <Text>Already have an account? </Text>
+          <Link as={RouterLink} to="/login" color="teal.500" fontWeight="bold">Login</Link>
         </Flex>
-      );
-    };
-    
-    export default Signup;
+      </Box>
+    </Flex>
+  );
+};
+
+export default SignupForm;
