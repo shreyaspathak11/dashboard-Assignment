@@ -26,7 +26,7 @@ const LoginForm = () => {
         >
           {useColorModeValue(<FaMoon />, <FaSun />)}
         </Button>
-    <Box w={{ base: '100%', md: '400px' }} p={5} boxShadow="xl" bgColor={bgColor} border="1px solid" borderColor="gray.200" borderRadius="lg">
+    <Box w={{ base: '100%', md: '400px' }} p={5} m={5} boxShadow="xl" bgColor={bgColor} border="1px solid" borderColor="gray.200" borderRadius="lg">
       <Heading fontSize="2xl" textAlign="center" mb={5} fontFamily={"Roboto Condensed"}>LOGIN</Heading>
       <form onSubmit={handleSubmit}>
         <Flex direction="column" alignItems="center">
