@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Button, Flex, Heading, Input, Link, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Image, Input, Link, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import logo from '../assets/logo.png';
 
 const LoginForm = () => {
   const { toggleColorMode } = useColorMode();
@@ -17,6 +18,8 @@ const LoginForm = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" h="100vh" bgColor={backgroundColor}>
+    <Image position={"absolute"} top={2} left={2} zIndex={1} h={10} w={10} src={logo} alt="logo" />
+
     <Button
           position="absolute"
           top={2}
