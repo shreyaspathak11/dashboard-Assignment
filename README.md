@@ -5,6 +5,7 @@
 The application is deployed on Vercel and can be accessed via the following link:
 
 [Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
+
 [Deployed Server](https://auth-server-assignment.vercel.app)
 
 Server Code : [Github link](https://github.com/shreyaspathak11/Auth-server-assignment/) 
