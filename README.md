@@ -1,9 +1,13 @@
 # Dashboard Frontend Assignment
  
- Deployed here: [Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
+ ## Deployment
 
-![DashBoard](https://i.ibb.co/Ct0G56T/sample1.png)
-![Login Screen](https://i.ibb.co/TLmGsxb/sample2.png)
+The application is deployed on Vercel and can be accessed via the following link:
+
+[Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
+
+ ## Sample 
+![DashBoard](https://i.ibb.co/Ct0G56T/sample1.png)                                   ![Login Screen](https://i.ibb.co/TLmGsxb/sample2.png)
 
 Server Code : [Github link](https://github.com/shreyaspathak11/Auth-server-assignment/) [Deployed Server](https://auth-server-assignment.vercel.app)
 ## Project Structure
@@ -103,11 +107,6 @@ npm start
 
 5. Open your browser and visit `http://localhost:3000` to view the application.
 
-## Deployment
-
-The application is deployed on Vercel and can be accessed via the following link:
-
-[Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
 
 ## Additional Notes
 
