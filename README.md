@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Dashboard Frontend Assignment
+ 
+ Deployed here: [Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![DashBoard](https://ibb.co/2NgrT1s)
+![Login Screen](https://ibb.co/hM8zRct)
 
-## Available Scripts
+    Server Code : [Github link](https://github.com/shreyaspathak11/Auth-server-assignment/) [Deployed Server](https://auth-server-assignment.vercel.app)
+## Project Structure
 
-In the project directory, you can run:
+The project structure follows a typical React application layout:
 
-### `npm start`
+```
+dashboard/
+  README.md
+  node_modules/
+  package.json
+  public/
+    index.html
+    favicon.ico
+  src/
+    assets/
+      data.js
+    components/
+      Charts/
+        BarChart.js
+        LineChart.js
+        PolarChart.js
+      Forms & Tables/
+        EmailForm.js
+        Form.js
+        Table.js
+      Footer.js
+      Header.js
+      StatusBox/
+        MostSoldStatBox.js
+        NewCustomerStatBox.js
+        StatBox.js
+    pages/
+      Dashboard.js
+      Login.js
+      Signup.js
+    App.css
+    App.js
+    App.test.js
+    index.css
+    index.js
+    reportWebVitals.js
+    setupTests.js
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **`src/`:** Contains all the source code for the project.
+- **`src/assets/`:** Contains data files used in the application.
+- **`src/components/`:** Contains reusable components used across multiple pages.
+- **`src/components/Charts/`:** Contains components for different chart types.
+- **`src/components/Forms & Tables/`:** Contains components related to forms and tables.
+- **`src/components/StatusBox/`:** Contains components for displaying status boxes.
+- **`src/pages/`:** Contains the main pages of the application.
+- **`public/`:** Contains static assets like HTML files and favicon.
+- **`package.json`:** Configuration file for npm dependencies and scripts.
+- **`README.md`:** This file, containing project documentation.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Libraries Used
 
-### `npm test`
+- **Chakra UI:** Used for building the user interface components with a consistent design system.
+- **React Chart.js 2:** Used for creating various types of charts and graphs in the dashboard.
+- **React Icons:** Used for adding icons to the UI components.
+- **React Router DOM:** Used for handling navigation between different pages in the application.
+- **Axios:** Used for making HTTP requests to fetch data from an API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running the App
 
-### `npm run build`
+To run the application locally:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+git clone https://github.com/shreyaspathak11/dashboard.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory:
 
-### `npm run eject`
+```
+cd dashboard
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install
+```
+4. Create a .env file in root directory and add:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+REACT_APP_SERVER_URL="https://auth-server-assignment.vercel.app"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. Start the development server:
 
-## Learn More
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+The application is deployed on Vercel and can be accessed via the following link:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
 
-### Analyzing the Bundle Size
+## Additional Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The application is optimized and responsive to both desktop and mobile screens.
+- All components and layouts are designed to ensure a smooth user experience across different devices and screen sizes.
