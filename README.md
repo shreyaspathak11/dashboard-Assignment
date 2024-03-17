@@ -2,10 +2,10 @@
  
  Deployed here: [Dashboard Assignment](https://dashboard-assignment-three.vercel.app/)
 
-![DashBoard](https://ibb.co/2NgrT1s)
+![DashBoard](https://i.ibb.co/hM8zRct/sample1.png)
 ![Login Screen](https://ibb.co/hM8zRct)
 
-    Server Code : [Github link](https://github.com/shreyaspathak11/Auth-server-assignment/) [Deployed Server](https://auth-server-assignment.vercel.app)
+Server Code : [Github link](https://github.com/shreyaspathak11/Auth-server-assignment/) [Deployed Server](https://auth-server-assignment.vercel.app)
 ## Project Structure
 
 The project structure follows a typical React application layout:
