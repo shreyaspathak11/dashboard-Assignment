@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Button, Flex, Heading, Input, Textarea, useToast, IconButton } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Input, Textarea, useToast, IconButton,  useColorModeValue } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 
 const EmailForm = () => {
   const [formData, setFormData] = useState({ Email: '', message: '', attachments: [] });
+  const borderColor = useColorModeValue('gray.900', 'gray.200');
   const toast = useToast();
 
   const handleInputChange = (e) => {
@@ -45,7 +46,7 @@ const EmailForm = () => {
           value={formData.email}
           type='email'
           onChange={handleInputChange}
-          borderColor={"blue.400"}
+          borderColor={borderColor}
           placeholder="Email"
           mb={4}
         />
@@ -54,7 +55,7 @@ const EmailForm = () => {
           type="text"
           value={formData.message}
           onChange={handleInputChange}
-          borderColor={"blue.400"}
+          borderColor={borderColor}
           placeholder="Message"
           mb={4}
         />
@@ -62,7 +63,7 @@ const EmailForm = () => {
           type="file"
           multiple
           onChange={handleAttachmentChange}
-          borderColor={"blue.400"}
+          borderColor={borderColor}
           mb={4}
         />
         {formData.attachments.map((file, index) => (

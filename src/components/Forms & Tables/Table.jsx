@@ -11,7 +11,7 @@ const TableComponent = ({ data }) => {
       w="100%"
       p={4}
       boxShadow="lg"
-      border="1px solid"  
+      border="1px solid"
       borderColor={borderColor}
       bgColor={bgColor}
       borderRadius="lg"
@@ -23,32 +23,7 @@ const TableComponent = ({ data }) => {
       <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="bold" textAlign="center" mb={4} fontFamily={"Roboto Condensed"}>
         DATA TABLE
       </Heading>
-      {shouldScroll ? (
-        <Box overflowX="auto">
-          <Table variant="striped" colorScheme="teal">
-            <Thead>
-              <Tr>
-                <Th display={{ base: 'none', md: 'table-cell' }}>Sl. No.</Th>
-                <Th>Product Name</Th>
-                <Th>Sales</Th>
-                <Th>New Customers</Th>
-                <Th>Date</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {data.map((item, index) => (
-                <Tr key={item.id}>
-                  <Td display={{ base: 'none', md: 'table-cell' }}>{index + 1}</Td>
-                  <Td>{item.productName}</Td>
-                  <Td>{item.sales}</Td>
-                  <Td>{item.newCustomers}</Td>
-                  <Td>{item.date}</Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
-        </Box>
-      ) : (
+      <Box overflowY={shouldScroll ? "scroll" : "visible"} maxHeight={shouldScroll ? "250px" : "auto"}>
         <Table variant="striped" colorScheme="teal">
           <Thead>
             <Tr>
@@ -71,7 +46,7 @@ const TableComponent = ({ data }) => {
             ))}
           </Tbody>
         </Table>
-      )}
+      </Box>
     </Box>
   );
 };

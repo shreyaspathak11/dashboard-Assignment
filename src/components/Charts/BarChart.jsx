@@ -40,7 +40,7 @@ const BarChart = ({ data }) => {
 
   return (
     <Box
-      w={{ base: '100%', md: '40%' }}
+      w={{ base: '99%', md: '50%' }}
       p={4}
       m={4}
       boxShadow="lg"
