@@ -10,7 +10,6 @@ const TableComponent = ({ data }) => {
     <Box
       w="100%"
       p={4}
-      m={4}
       boxShadow="lg"
       border="1px solid"  
       borderColor={borderColor}

@@ -14,6 +14,8 @@ const MostSoldStatBox = ({ data }) => {
     <Box
       mt={{ base: 4, md: 10 }}
       p={4}
+      mr={4}
+      ml={4}
       bgColor={bgColor}
       width={{ base: '100%', md: '300px' }}
       height="200px" // Set a fixed height

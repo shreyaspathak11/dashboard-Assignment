@@ -34,16 +34,13 @@ const Dashboard = () => {
         <MostSoldStatBox data={tableData} />
       </Flex>
 
-      <Flex alignItems="center" justifyContent="space-evenly" mb={10} flexWrap="wrap">
-        <Box mr={{ base: 0, md: 4 }}>
+      <Flex alignItems="center" justifyContent="space-evenly" direction="row" mb={10} flexWrap="wrap">
           <BarChart data={tableData} />
-        </Box>
-        <Box ml={{ base: 0, md: 4 }}>
+
           <LineChart data={tableData} />
-        </Box>
       </Flex>
 
-      <Stack direction={{ base: 'column', md: 'row' }} spacing="4" mb={10} justifyContent="center">
+      <Stack direction={{ base: 'column', md: 'row' }} spacing="4"  m={4} justifyContent="center">
         <Form onSubmit={handleFormSubmit} />
         <TableComponent data={tableData} />
       </Stack>

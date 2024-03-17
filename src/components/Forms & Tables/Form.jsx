@@ -43,7 +43,7 @@ const Form = ({ onSubmit }) => {
   }
 
   return (
-    <Box w={{ base: '100%', md: '100%' }} p={5} m={5} h={"50%"} boxShadow="lg" bgColor={bgColor}  border="1px solid" borderColor={borderColor} borderRadius="lg" transition="all 0.2s" _hover={{ boxShadow: 'lg' }}>
+    <Box w={{ base: '100%', md: '100%' }}  p={5} h={"50%"} boxShadow="lg" bgColor={bgColor}  border="1px solid" borderColor={borderColor} borderRadius="lg" transition="all 0.2s" _hover={{ boxShadow: 'lg' }}>
       <form onSubmit={handleSubmit} >
         <Flex direction="column">
           <Heading fontSize="2xl" fontFamily={"Roboto Condensed"} fontWeight="bold" mb={4}>Please Add New Data Here:</Heading>
