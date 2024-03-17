@@ -8,7 +8,6 @@ const TableComponent = ({ data }) => {
 
   return (
     <Box
-      w="100%"
       p={4}
       boxShadow="lg"
       border="1px solid"
@@ -23,7 +22,7 @@ const TableComponent = ({ data }) => {
       <Heading fontSize={{ base: 'xl', md: '2xl' }} fontWeight="bold" textAlign="center" mb={4} fontFamily={"Roboto Condensed"}>
         DATA TABLE
       </Heading>
-      <Box overflowY={shouldScroll ? "scroll" : "visible"} maxHeight={shouldScroll ? "250px" : "auto"}>
+      <Box  overflowX={"auto"} overflowY={shouldScroll ? "scroll" : "visible"} maxHeight={shouldScroll ? "250px" : "auto"}>
         <Table variant="striped" colorScheme="teal">
           <Thead>
             <Tr>
@@ -34,13 +33,13 @@ const TableComponent = ({ data }) => {
               <Th>Date</Th>
             </Tr>
           </Thead>
-          <Tbody>
+          <Tbody textAlign={'center'}>
             {data.map((item, index) => (
               <Tr key={item.id}>
                 <Td display={{ base: 'none', md: 'table-cell' }}>{index + 1}</Td>
                 <Td>{item.productName}</Td>
                 <Td>{item.sales}</Td>
-                <Td>{item.newCustomers}</Td>
+                <Td >{item.newCustomers}</Td>
                 <Td>{item.date}</Td>
               </Tr>
             ))}

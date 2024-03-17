@@ -43,11 +43,11 @@ const Form = ({ onSubmit }) => {
   }
 
   return (
-    <Box w={{ base: '100%', md: '100%' }}  p={5} h={"50%"} boxShadow="lg" bgColor={bgColor}  border="1px solid" borderColor={borderColor} borderRadius="lg" transition="all 0.2s" _hover={{ boxShadow: 'lg' }}>
+    <Box w={{ base: '100%', md: '50%' }}  p={5} h={"50%"} boxShadow="lg" bgColor={bgColor}  border="1px solid" borderColor={borderColor} borderRadius="lg" transition="all 0.2s" _hover={{ boxShadow: 'lg' }}>
       <form onSubmit={handleSubmit} >
         <Flex direction="column">
           <Heading fontSize="2xl" fontFamily={"Roboto Condensed"} fontWeight="bold" mb={4}>Please Add New Data Here:</Heading>
-          <Stack spacing={4}>
+          <Stack spacing={4} p={4}>
             <Input
               placeholder="Product Name"
               value={formData.productName}
@@ -78,8 +78,9 @@ const Form = ({ onSubmit }) => {
               value={formData.date}
               onChange={(e) => setFormData({ ...formData, date: e.target.value })}
             />
+            <Button type="submit" w={"50%"} mx="auto" colorScheme="teal">+ Add Data</Button>
           </Stack>
-          <Button type="submit" mt={5} w={{ base: '100%', md: '80%' }} mx="auto" colorScheme="teal">+ Add Data</Button>
+          
         </Flex>
       </form>
     </Box>

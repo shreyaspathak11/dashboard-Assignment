@@ -38,7 +38,7 @@ const LineChart = ({ data }) => {
 
   return (
     <Box
-      w={{ base: '99%' , md: '50%'}}
+      w={{ base: '99%' , md: '45%'}}
       p={4}
       m={4}
       boxShadow="lg"

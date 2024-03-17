@@ -24,7 +24,8 @@ const PolarChart = ({ data }) => {
   };
 
   return (
-    <Box p={4} boxShadow="lg" border="2px solid" bgColor={bgColor} borderColor={borderColor} borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
+    <Box w={{ base: '80%', md: '45%' }}
+    p={4} m={4} boxShadow="lg" border="2px solid" bgColor={bgColor} borderColor={borderColor} borderRadius="lg" transition="box-shadow 0.3s ease" _hover={{ boxShadow: "lg" }}>
       <PolarArea data={chartData} />
       <Text fontSize="l" fontWeight="bold" textAlign="center" fontFamily={"Roboto Condensed"} mt={4}>
         Sales VS Product
