@@ -84,7 +84,7 @@ To run the application locally:
 1. Clone the repository:
 
 ```
-git clone https://github.com/shreyaspathak11/dashboard.git
+git clone https://github.com/shreyaspathak11/dashboard-Assignment.git
 ```
 
 2. Navigate to the project directory:
