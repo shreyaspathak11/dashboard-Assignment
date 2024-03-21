@@ -51,11 +51,9 @@ dashboard/
       Signup.js
     App.css
     App.js
-    App.test.js
     index.css
     index.js
-    reportWebVitals.js
-    setupTests.js
+
 ```
 
 - **`src/`:** Contains all the source code for the project.
